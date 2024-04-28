@@ -11,7 +11,7 @@ import { useRecipeContext } from "../../contex/RecipeContext";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [burger, setBurger] = useState(false);
-  const [searchs, setSearchs] = useState(false);
+  const [searchs, setSearchs] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
   const { user, save } = useSelector((s) => s);
@@ -41,10 +41,13 @@ const Header = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  useEffect(() => {
+  function naviget(){
     if (search.length > 0) {
       navigate("/search");
     }
+  }
+  useEffect(() => {
+    naviget()
   }, [search]);
 
 

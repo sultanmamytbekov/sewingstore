@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import img from "./image/image 15.svg";
+import React, { useState } from "react";
 import "./index.scss";
 import Block from "./Block";
 import { useSelector } from "react-redux";

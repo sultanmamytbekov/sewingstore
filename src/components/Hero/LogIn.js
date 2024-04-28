@@ -57,10 +57,14 @@ export const LogIn = () => {
     return;
   }
 
-  useEffect(() => {
+  function navigat(){
     if (user) {
       navigate("/");
     }
+  }
+
+  useEffect(() => {
+   navigat()
   }, [user]);
 
   const [eyeOne, setEyeOne] = useState(false);

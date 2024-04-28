@@ -19,6 +19,7 @@ const Card = () => {
               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5846.20935520863!2d74.59654790521851!3d42.891738167829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1714290418608!5m2!1sru!2skg"
               width="620"
               height="450"
+              title="card"
               style={{ border: "none", borderRadius: "5px" }}
               allowfullscreen=""
               loading="lazy"

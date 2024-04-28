@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Recom from "./Recom";
 import Card from "../../components/Hero/Сard";
-import { actionType } from "../../redux/actionType";
 import { addToSave } from "../../redux/Reducer/ActionCreater";
 
 const DetailPage = () => {
@@ -21,7 +20,6 @@ const DetailPage = () => {
   useEffect(() => {
     foundOneRecipe();
   }, [recipes]);
-  console.log(oneRecipe);
 
   return (
     <>
@@ -86,10 +84,11 @@ const DetailPage = () => {
                 <div className="detail--text1__count">
                   <button
                     onClick={() => {
-                      dispatch({
-                        type: actionType.ADD_COUNT_TWE,
-                        payload: oneRecipe.id,
-                      });
+                      // dispatch({
+                      //   type: actionType.ADD_COUNT_TWE,
+                      //   payload: oneRecipe.id,
+                      // });
+                      setOneRecipe({...oneRecipe , count:oneRecipe.count -= (oneRecipe.count !== 1 ? 1 : 0)});
                     }}
                   >
                     -
@@ -97,10 +96,11 @@ const DetailPage = () => {
                   <div>{oneRecipe ? oneRecipe.count : ""}</div>
                   <button
                     onClick={() => {
-                      dispatch({
-                        type: actionType.ADD_COUNT_ONE,
-                        payload: oneRecipe.id,
-                      });
+                      // dispatch({
+                      //   type: actionType.ADD_COUNT_ONE,
+                      //   payload: oneRecipe.id,
+                      // });
+                      setOneRecipe({...oneRecipe , count:oneRecipe.count += 1});
                     }}
                   >
                     +
