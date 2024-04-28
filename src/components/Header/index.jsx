@@ -47,19 +47,7 @@ const Header = () => {
     }
   }, [search]);
 
-  function scrollPopular() {
-    if (windowWidth > 800) {
-      window.scroll(0, 3000);
-    } else if (windowWidth <= 800 && windowWidth > 700) {
-      window.scroll(0, 3100);
-    } else if (windowWidth <= 700 && windowWidth > 600) {
-      window.scroll(0, 3650);
-    } else if (windowWidth <= 600) {
-      window.scroll(0, 4730);
-    } else {
-      window.scroll(0, 2700);
-    }
-  }
+
   return (
     <>
       <div
