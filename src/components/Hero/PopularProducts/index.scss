@@ -1,0 +1,133 @@
+#populars {
+  .populars {
+    h1 {
+      font-size: 34px;
+      font-weight: 400;
+      margin-bottom: 40px;
+    }
+    &--slider {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        display: none !important;
+      }
+      img {
+        width: 580px;
+        height: 326.25px;
+        padding: 0 20px;
+        background-size: 100% !important;
+        border-radius: 10px;
+      }
+      &__text {
+        width: 580px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .populars--slider__text {
+    width: 50% !important;
+    height: 320px !important;
+    img {
+      height: 320px !important;
+      padding: 0 20px 0 0 !important;
+    }
+  }
+  .populars--slider {
+    gap: 20px;
+  }
+  #populars .populars h1 {
+    font-size: 33px;
+    font-weight: 400;
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 1024px) {
+  .populars--slider__text {
+    // width: 460px !important;
+    height: 300px !important;
+  }
+  .populars--slider__text img {
+    height: 300px !important;
+    padding: 0 15px 0 0 !important;
+  }
+  #populars .populars h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .populars--slider {
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .populars--slider__text {
+    width: 100% !important;
+    height: 350px !important;
+  }
+  .populars--slider__text img {
+    height: 350px !important;
+    padding: 0 10px 0 10px !important;
+  }
+  #populars .populars h1 {
+    font-size: 29px !important;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .populars--slider__text {
+    height: 300px !important;
+  }
+  .populars--slider__text img {
+    height: 300px !important;
+  }
+  #populars .populars h1 {
+    font-size: 26px !important;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .populars--slider__text {
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .populars--slider__text {
+    height: 250px !important;
+  }
+  .populars--slider__text img {
+    height: 250px !important;
+  }
+  #populars .populars h1 {
+    font-size: 22px !important;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .populars--slider__text {
+    height: 230px !important;
+  }
+  .populars--slider__text img {
+    height: 230px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  #populars .populars h1 {
+    font-size: 22px !important;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  #populars .populars h1 {
+    font-size: 20px !important;
+    margin-bottom: 30px;
+  }
+}

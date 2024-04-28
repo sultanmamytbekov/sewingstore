@@ -1,0 +1,129 @@
+#recom {
+  .recom {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    h1 {
+      font-size: 34px;
+      font-weight: 400;
+      margin-bottom: 50px;
+    }
+    &--title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // flex-wrap: wrap;
+      gap: 50px;
+      overflow-x: scroll;
+
+      .text {
+        padding: 0 20px 20px 20px;
+        h1 {
+          margin: 0;
+        }
+      }
+      .spinner {
+        animation: rotate 2s linear infinite;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+        width: 50px;
+        height: 50px;
+
+        & .path {
+          stroke: hsl(210, 70, 75);
+          stroke-linecap: round;
+          animation: dash 1.5s ease-in-out infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+
+
+
+@media (max-width: 1440px) {
+
+}
+
+// @media (max-width: 1200px) {
+
+// }
+
+@media (max-width: 1024px) {
+  #recom .recom--title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+}
+
+// @media (max-width: 992px) {
+
+// }
+
+@media (max-width: 768px) {
+  #recom .recom--title {
+    gap: 50px;
+}
+#recom .recom h1 {
+  font-size: 34px !important;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+}
+
+@media (max-width: 576px) {
+  #recom .recom--title {
+    gap: 40px;
+}
+}
+
+@media (max-width: 450px) {
+  #recom .recom--title {
+    flex-wrap: wrap;
+    gap: 30px;
+}
+}
+
+@media (max-width: 400px) {
+  #recom .recom--title {
+    gap: 30px;
+}
+}
+
+@media (max-width: 375px) {
+  #recom .recom h1 {
+    font-size: 28px !important;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+}
+
+// @media (max-width: 320px) {
+
+// }

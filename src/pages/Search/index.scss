@@ -1,0 +1,19 @@
+#search{
+    .search{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 60px;
+        &--title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            width: 100%;
+            h1{
+                font-size: 32px;
+                font-weight: 400;
+            }
+        }
+    }
+}

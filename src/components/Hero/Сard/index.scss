@@ -1,0 +1,133 @@
+#card {
+  .card {
+    h1 {
+      font-size: 34px;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    &--title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        h3 {
+          font-size: 26px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  #card .card--title__text h3 {
+    font-size: 24px !important;
+  }
+  #card {
+    iframe {
+      width: 530px;
+      height: 400px;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  #card .card--title__text h3 {
+    font-size: 21px !important;
+  }
+  #card {
+    iframe {
+      width: 500px;
+      height: 360px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  #card .card--title {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 30px;
+  }
+  #card .card--title__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #card {
+    iframe {
+      width: 100%;
+      height: 460px;
+    }
+  }
+  #card .card--title__text h3 {
+    font-size: 27px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #card .card h1 {
+    font-size: 31px !important;
+    margin-bottom: 30px;
+  }
+  #card {
+    iframe {
+      // width: 700px;
+      height: 460px;
+    }
+  }
+  #card .card--title__text h3 {
+    font-size: 25px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #card {
+    iframe {
+      // width: 525px;
+      height: 400px;
+    }
+  }
+  #card .card--title__text h3 {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  #card {
+    iframe {
+      // width: 405px;
+      height: 340px;
+    }
+  }
+  #card .card--title__text h3 {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  #card .card--title__text h3 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  #card .card--title__text h3 {
+    font-size: 15px !important;
+  }
+  #card .card h1 {
+    font-size: 24px !important;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 320px) {
+  #card .card--title__text h3 {
+    font-size: 15px !important;
+  }
+}

@@ -1,0 +1,56 @@
+#foouter {
+  margin-top: 100px;
+  border-top: 2px solid #29aae3;
+  .foouter {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 20px;
+      font-weight: 400;
+      color: #29aae3;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+  font-size: 19px !important;
+  }
+}
+
+@media (max-width: 576px) {
+ h1 {
+  font-size: 16px !important;
+  }
+  
+}
+
+@media (max-width: 450px) {
+ h1 {
+  font-size: 15px !important;
+  }
+  .foouter {
+    height: 70px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 14px !important;
+    }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 12px !important;
+    }
+    
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 11px !important;
+    }
+}

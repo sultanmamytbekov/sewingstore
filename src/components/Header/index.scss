@@ -1,0 +1,139 @@
+header {
+  position: sticky;
+  top: 1px;
+  z-index: 2;
+  background-color: white;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 120px;
+    &--text {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      &__inputs {
+        display: flex;
+        height: 39px;
+        margin-right: 40px;
+        input {
+          width: 348px;
+          height: 100%;
+          border-radius: 10px;
+          background-color: #29aae345;
+          padding-left: 15px;
+          border: none;
+          font-size: 16px;
+          font-weight: 400;
+          outline: none;
+          letter-spacing: 0.5px;
+          border: 2px solid #29aae3;
+          &::placeholder {
+            color: black;
+          }
+        }
+        button {
+          width: 41px;
+          height: 100%;
+          top: 45px;
+          border-radius: 13px;
+          background-color: #29aae3;
+          border: none;
+          color: white;
+          font-size: 23px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: -20px;
+        }
+      }
+      &__buttons {
+        display: flex;
+        gap: 10px;
+        &--signIn {
+          width: 72px;
+          height: 39px;
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 400;
+          background-color: #29aae3;
+          color: white;
+          letter-spacing: 0.5px;
+        }
+        &--signUp {
+          width: 172px;
+          height: 39px;
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 400;
+          background-color: #29aae3;
+          color: white;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+}
+
+#profile {
+  position: relative;
+  &:hover {
+    #userName {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+#userName {
+  display: none;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 150px;
+  font-size: 12px;
+  background-color: rgba(14, 14, 14, 0.381);
+  color: rgba(255, 255, 255, 0.67);
+  border-radius: 3px;
+  border: 1px solid #000;
+  text-align: center;
+  margin-top: 5px;
+}
+
+@media (max-width: 1024px) {
+  header .header--text__inputs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    background-color: white;
+    border-radius: 15px;
+    width: 50%;
+    input{
+      width: 100%;
+    }
+  }
+  .admin {
+    display: none;
+  }
+}
+@media (max-width: 450px) {
+  header .header--text__inputs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    background-color: white;
+    border-radius: 15px;
+    width: 80%;
+    input{
+      width: 100%;
+    }
+  }
+  .removeFlex{
+    position: absolute;
+    left: 70%;
+    flex-direction: column-reverse;
+  }
+}
