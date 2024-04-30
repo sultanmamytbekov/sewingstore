@@ -294,7 +294,7 @@ const Header = () => {
 
               }}
               className="text-[17px] text-[#380202] cursor-pointer"
-              style={{display:user ? 'flex' :'none'}}
+              style={{display:user ? user.email === "sultanmamytbekov98@gmail.com" ? 'flex' :'none' : 'none'}}
             >
               Добавить блок
             </li>
