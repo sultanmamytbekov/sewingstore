@@ -118,6 +118,21 @@ header {
     display: none;
   }
 }
+@media (max-width: 768px) {
+  header .header--text__inputs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    background-color: white;
+    border-radius: 15px;
+    width: 65%;
+    input{
+      width: 100%;
+    }
+  }
+}
+
 @media (max-width: 450px) {
   header .header--text__inputs {
     position: absolute;

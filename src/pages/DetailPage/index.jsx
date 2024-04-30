@@ -5,9 +5,11 @@ import { useParams } from "react-router-dom";
 import Recom from "./Recom";
 import Card from "../../components/Hero/Сard";
 import { addToSave } from "../../redux/Reducer/ActionCreater";
+import { actionType } from "../../redux/actionType";
+import ModalBuy from "../Basket/ModalBuy/ModalBuy";
 
 const DetailPage = () => {
-  const { recipes, save } = useSelector((s) => s);
+  const { recipes, save , user , modal   } = useSelector((s) => s);
 
   const [oneRecipe, setOneRecipe] = useState(null);
   const [imgIdx, setImgIdx] = useState(0);
@@ -84,10 +86,6 @@ const DetailPage = () => {
                 <div className="detail--text1__count">
                   <button
                     onClick={() => {
-                      // dispatch({
-                      //   type: actionType.ADD_COUNT_TWE,
-                      //   payload: oneRecipe.id,
-                      // });
                       setOneRecipe({...oneRecipe , count:oneRecipe.count -= (oneRecipe.count !== 1 ? 1 : 0)});
                     }}
                   >
@@ -96,10 +94,6 @@ const DetailPage = () => {
                   <div>{oneRecipe ? oneRecipe.count : ""}</div>
                   <button
                     onClick={() => {
-                      // dispatch({
-                      //   type: actionType.ADD_COUNT_ONE,
-                      //   payload: oneRecipe.id,
-                      // });
                       setOneRecipe({...oneRecipe , count:oneRecipe.count += 1});
                     }}
                   >
@@ -126,7 +120,11 @@ const DetailPage = () => {
                       : "",
                   }}
                   onClick={() => {
-                    dispatch(addToSave(oneRecipe));
+                    if(user){
+                      dispatch(addToSave(oneRecipe));
+                    }else{
+                      alert('пройдите регистратцию')
+                    }
                   }}
                 >
                   {save.some(
@@ -134,12 +132,13 @@ const DetailPage = () => {
                   ) ? 'Убрать с корзину' : 'Добавить в корзину' }
                   
                 </button>
-                <button className="buttons">Купить в один клик</button>
+                <button onClick={() => dispatch({ type: actionType.OPEN_CLOSE_MODAL, payload: true })} className="buttons">Купить в один клик</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {modal ? <ModalBuy /> : null}
       <Recom />
       <Card />
     </>

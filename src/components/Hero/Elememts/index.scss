@@ -60,10 +60,13 @@
 
 @media (max-width: 1286px) {
   #elements .elements--title {
-    justify-content: space-around;
-    gap: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two blocks in a row */
+    gap: 50px; /* Gap between blocks */
+    place-items: center; 
   }
 }
+
 @media (max-width: 1200px) {
   #elements .elements--title {
     justify-content: space-around;
@@ -89,13 +92,15 @@
 }
 @media (max-width: 876px){
   #elements .elements--title {
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Two blocks in a row */
     gap: 40px;
+    place-items: center; 
   }
 }
 @media (max-width: 768px) {
   #elements .elements--texts {
-    font-size: 31px;
+    font-size: 28px !important;
     margin-bottom: 30px;
   }
   #elements .elements--title {
@@ -108,17 +113,23 @@
 
 // }
 
-// @media (max-width: 450px) {
-
-// }
+@media (max-width: 450px) {
+  #elements .elements--texts {
+    font-size: 25px !important;
+    margin-bottom: 30px;
+  }
+}
 
 // @media (max-width: 400px) {
 
 // }
 
-// @media (max-width: 375px) {
-
-// }
+@media (max-width: 375px) {
+  #elements .elements--texts {
+    font-size: 23px !important;
+    margin-bottom: 30px;
+  }
+}
 
 // @media (max-width: 320px) {
 

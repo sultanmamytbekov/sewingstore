@@ -116,13 +116,17 @@
 
 // }
 
-// @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .text h1 {
+    width: 90%;
+    font-size: 26px !important;
+    font-weight: 400;
+}
+}
 
-// }
+@media (max-width: 576px) {
 
-// @media (max-width: 576px) {
-
-// }
+}
 
 @media (max-width: 450px) {
   .text {

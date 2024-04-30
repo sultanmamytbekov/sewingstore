@@ -20,9 +20,10 @@ html {
 }
 
 .container {
-  /* max-width: 1240px; */
-  width: 90%;
+  max-width: 1240px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 *{

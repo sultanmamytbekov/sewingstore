@@ -1,14 +1,12 @@
-import './App.scss';
-import Foouter from './components/Foouter';
-import Header from './components/Header';
-import ReactRouter from './routes/ReactRouter';
+import "./App.scss";
+import Header from "./components/Header";
+import ReactRouter from "./routes/ReactRouter";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <ReactRouter/>
-      <Foouter/>
+      <Header />
+      <ReactRouter />
     </div>
   );
 }

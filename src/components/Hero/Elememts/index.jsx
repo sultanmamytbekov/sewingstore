@@ -21,11 +21,13 @@ const Elements = () => {
       <div className="container">
         <div className="elements">
           <h1 className="elements--texts" data-aos="fade-right">Популярные продукты</h1>
+          <center>
           <div className="elements--title">
             {displayedProducts.map((el, idx) => (
               <Block el={el} idx={idx} />
             ))}
           </div>
+          </center>
           <div className="pagination">
             <button
               style={{
@@ -65,7 +67,7 @@ const Elements = () => {
                 setCurrentPage(
                   currentPage + (currentPage === totalPages ? 0 : 1)
                 );
-                window.scroll(900, 900);
+                  window.scroll(900, 900);
               }}
             >
               {">"}

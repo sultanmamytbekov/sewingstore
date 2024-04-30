@@ -11,7 +11,7 @@ import { useRecipeContext } from "../../contex/RecipeContext";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [burger, setBurger] = useState(false);
-  const [searchs, setSearchs] = useState(true);
+  const [searchs, setSearchs] = useState(window.innerWidth >= 1024)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
   const { user, save } = useSelector((s) => s);
@@ -29,6 +29,9 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  useEffect(() => {
+    setSearchs(window.innerWidth >= 1024)
+  } , [window.innerWidth])
 
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
@@ -137,7 +140,7 @@ const Header = () => {
                     <p
                       style={{
                         display: save.length > 0 ? "" : "none",
-                        borderColor: scrolled ? "" : "#8d6a46",
+                        borderColor: scrolled ? "" : "#fff",
                       }}
                       className="absolute cursor-pointer transition-all top-[-8px] right-[-8px] bg-[red] border-[2px] border-[#fff] w-[23px] h-[23px] text-center leading-[18px] rounded-[50%] text-[#fff]"
                     >
@@ -160,7 +163,7 @@ const Header = () => {
                   <img
                     onClick={() => signOut(auth)}
                     className="w-[30px] max-[640px]:hidden"
-                    src="https://cdn-icons-png.flaticon.com/512/3580/3580154.png"
+                    src="https://cdn-icons-png.freepik.com/512/8455/8455227.png"
                     alt="signOut"
                   />
                 </div>
@@ -189,21 +192,21 @@ const Header = () => {
                     transform: burger ? "rotate(135deg)" : "",
                     top: burger ? "13px" : "",
                   }}
-                  className="absolute z-[60] transition-all w-[100%] h-[3px] bg-[#FF9A31] rounded-[2px] top-0"
+                  className="absolute z-[60] transition-all w-[100%] h-[3px] bg-[#29aae3] rounded-[2px] top-0"
                 ></span>
                 <span
                   style={{
                     transform: burger ? "scale(0)" : "",
                     top: burger ? "10px" : "",
                   }}
-                  className="absolute z-[60] transition-all w-[100%] h-[3px] bg-[#FF9A31] rounded-[2px] top-[50%] translate-y-[-50%]"
+                  className="absolute z-[60] transition-all w-[100%] h-[3px] bg-[#29aae3] rounded-[2px] top-[50%] translate-y-[-50%]"
                 ></span>
                 <span
                   style={{
                     transform: burger ? "rotate(-135deg)" : "",
                     bottom: burger ? "13px" : "",
                   }}
-                  className="absolute z-[60] transition-all w-[100%] h-[3px] bg-[#FF9A31] rounded-[2px] bottom-0"
+                  className="absolute z-[60] transition-all w-[100%] h-[3px] bg-[#29aae3] rounded-[2px] bottom-0"
                 ></span>
               </div>
             </div>
@@ -227,6 +230,7 @@ const Header = () => {
                 setSearchs(false);
                 }}
                 className="flex items-center gap-3 min-[640px]:hidden"
+                style={{display:user ? 'flex' :'none'}}
               >
                 <li className="text-[17px] text-[#380202] cursor-pointer">
                   Сохранненые

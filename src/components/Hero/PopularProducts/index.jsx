@@ -23,7 +23,7 @@ const Populars = () => {
     <div id="populars">
       <div className="container">
         <div className="populars">
-          <h1 data-aos="fade-right">Популярные продукты</h1>
+          <h1>Популярные продукты</h1>
           <div data-aos="fade-right" className="populars--slider">
             <div className="populars--slider__text">
               <Slider {...settings}>

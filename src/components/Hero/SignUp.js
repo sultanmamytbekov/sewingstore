@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import bg from "../Hero/image/HeroImg.png";
-// import bg from "../Header/image/HeroImg-Photoroom.png";
+// import bg from "../Hero/image/HeroImg.png";
+import bg from "../Hero/image/Снимок экрана от 2024-04-30 11-48-51.png";
 import errorImage from "../Hero/image/error.svg";
 import { useSelector } from "react-redux";
 import { IoEyeOutline } from "react-icons/io5";
