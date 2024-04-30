@@ -294,12 +294,14 @@ const Header = () => {
 
               }}
               className="text-[17px] text-[#380202] cursor-pointer"
+              style={{display:user ? 'flex' :'none'}}
             >
               Добавить блок
             </li>
             <li
               onClick={() => signOut(auth)}
               className="text-[17px] text-[#380202] cursor-pointer flex items-center gap-2"
+              style={{display:user ? 'flex' :'none'}}
             >
               Выйти
               <img
