@@ -9,7 +9,7 @@ import { actionType } from "../../redux/actionType";
 import ModalBuy from "../Basket/ModalBuy/ModalBuy";
 
 const DetailPage = () => {
-  const { recipes, save , user , modal   } = useSelector((s) => s);
+  const { recipes, save, user, modal } = useSelector((s) => s);
 
   const [oneRecipe, setOneRecipe] = useState(null);
   const [imgIdx, setImgIdx] = useState(0);
@@ -86,7 +86,11 @@ const DetailPage = () => {
                 <div className="detail--text1__count">
                   <button
                     onClick={() => {
-                      setOneRecipe({...oneRecipe , count:oneRecipe.count -= (oneRecipe.count !== 1 ? 1 : 0)});
+                      setOneRecipe({
+                        ...oneRecipe,
+                        count: (oneRecipe.count -=
+                          oneRecipe.count !== 1 ? 1 : 0),
+                      });
                     }}
                   >
                     -
@@ -94,7 +98,10 @@ const DetailPage = () => {
                   <div>{oneRecipe ? oneRecipe.count : ""}</div>
                   <button
                     onClick={() => {
-                      setOneRecipe({...oneRecipe , count:oneRecipe.count += 1});
+                      setOneRecipe({
+                        ...oneRecipe,
+                        count: (oneRecipe.count += 1),
+                      });
                     }}
                   >
                     +
@@ -120,19 +127,34 @@ const DetailPage = () => {
                       : "",
                   }}
                   onClick={() => {
-                    if(user){
+                    if (user) {
                       dispatch(addToSave(oneRecipe));
-                    }else{
-                      alert('пройдите регистратцию')
+                    } else {
+                      alert("пройдите регистратцию");
                     }
                   }}
                 >
                   {save.some(
                     (item) => item.id == (oneRecipe ? oneRecipe.id : null)
-                  ) ? 'Убрать с корзину' : 'Добавить в корзину' }
-                  
+                  )
+                    ? "Убрать с корзину"
+                    : "Добавить в корзину"}
                 </button>
-                <button onClick={() => dispatch({ type: actionType.OPEN_CLOSE_MODAL, payload: true })} className="buttons">Купить в один клик</button>
+                <button
+                  onClick={() => {
+                    if (user) {
+                      dispatch({
+                        type: actionType.OPEN_CLOSE_MODAL,
+                        payload: true,
+                      });
+                    } else {
+                      alert("пройдите регистратцию");
+                    }
+                  }}
+                  className="buttons"
+                >
+                  Купить в один клик
+                </button>
               </div>
             </div>
           </div>

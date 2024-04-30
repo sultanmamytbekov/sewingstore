@@ -14,9 +14,8 @@ const Header = () => {
   const [searchs, setSearchs] = useState(window.innerWidth >= 1024)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
-  const { user, save } = useSelector((s) => s);
+  const { user, save , admin } = useSelector((s) => s);
   const { search, setSearch } = useRecipeContext();
-  console.log(search);
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
@@ -105,7 +104,7 @@ const Header = () => {
                 </button>
               </div>
               {user ? (
-                user.email === "sultanmamytbekov98@gmail.com" ? (
+                admin.includes(user.email) ? (
                   <div
                     className="admin"
                     onClick={() => navigate("/admin")}
@@ -233,7 +232,7 @@ const Header = () => {
                 style={{display:user ? 'flex' :'none'}}
               >
                 <li className="text-[17px] text-[#380202] cursor-pointer">
-                  Сохранненые
+                  Корзина
                 </li>
                 <p
                   style={{
@@ -294,7 +293,7 @@ const Header = () => {
 
               }}
               className="text-[17px] text-[#380202] cursor-pointer"
-              style={{display:user ? user.email === "sultanmamytbekov98@gmail.com" ? 'flex' :'none' : 'none'}}
+              style={{display:user ? admin.includes(user.email) ? 'flex' :'none' : 'none'}}
             >
               Добавить блок
             </li>

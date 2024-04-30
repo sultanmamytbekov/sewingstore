@@ -8,7 +8,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { useRecipeContext } from "../../../../contex/RecipeContext";
 
 const Block = ({ el, idx }) => {
-  const { user, save } = useSelector((s) => s);
+  const { user, save , admin } = useSelector((s) => s);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {removeProduct} = useRecipeContext()
@@ -33,6 +33,7 @@ const Block = ({ el, idx }) => {
               : "",
           }}
           onClick={() => {
+            if(!user)return;
             dispatch(addToSave(el));
           }}
         >
@@ -48,7 +49,7 @@ const Block = ({ el, idx }) => {
           </p>
         </button>
         {
-          user ? user.email === "sultanmamytbekov98@gmail.com" ? (
+          user ? admin.includes(user.email) ? (
             <button className="removeBtn" onClick={() => removeProduct(el.id)}><MdDeleteOutline/></button>
           ) : null : null
         }

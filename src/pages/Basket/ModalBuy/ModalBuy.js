@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actionType } from "../../../redux/actionType";
 import { IoClose } from "react-icons/io5";
 import Loading from "../img/Loading";
@@ -9,9 +9,10 @@ const ModalBuy = () => {
   const [newData, setNewDate] = useState({ name: "", phone: "", email: "" });
   const [isLoading, setLoading] = useState(false);
   const [time, setTime] = useState(false);
+  const { save, user } = useSelector((s) => s);
   const dispatch = useDispatch();
   function onChange(e) {
-    const { name, value } = e.target;
+    const { name, value, modal } = e.target;
 
     setNewDate({ ...newData, [name]: value });
   }
@@ -27,7 +28,14 @@ const ModalBuy = () => {
       number: newData.phone,
       gmail: newData.email,
     };
-    let resMessage = `ногул чмо \n имя: '${res.name} \n нрмер: "${res.number}" \n email: ${res.gmail}`;
+    let resMessage = `
+    Пользователь: ${user.displayName} \n имя: '${res.name} \n нрмер: "${
+      res.number
+    }" \n email: ${res.gmail} \n купил товар под номером: ${save
+      .map((el) => el.id)
+      .join(",")} \n общая цена: ${save
+      .map((el) => el.count * +el.price)
+      .reduce((acc, el) => acc + el)}сом`;
     axios.post(API, {
       chat_id: TELEGRAM_CHAT_ID,
       parse_mode: "html",
@@ -35,6 +43,7 @@ const ModalBuy = () => {
     });
     setTimeout(() => {
       setTime(true);
+      dispatch({ type: actionType.BASKET_REMOVE, payload: [] });
     }, rondom * 1000);
   }
   return (
@@ -42,22 +51,38 @@ const ModalBuy = () => {
       id="modal"
       className="fixed inset-[0] z-20 w-[100%] h-[100vh] backdrop-blur-md bg-[#a09f9f57] flex justify-center items-center"
     >
-      <div className="py-[30px] px-[40px] bg-white rounded-[10px] flex flex-col gap-[20px] w-[100%] max-w-[500px] items-center">
+      <div className="py-[30px] px-[40px] bg-white rounded-[10px] flex flex-col gap-[20px] w-[100%] max-w-[500px] items-center m-[30px]">
         <div className="flex items-center justify-between w-[100%]">
-          <h1 className="text-[24px] font-medium">Заказать</h1>
+          <h1 className="text-[27px] font-medium">Заказать</h1>
           <button
-            onClick={() =>{
-              dispatch({ type: actionType.OPEN_CLOSE_MODAL, payload: false })
-              setTime(false)
-            }
-            }
+            onClick={() => {
+              dispatch({ type: actionType.OPEN_CLOSE_MODAL, payload: false });
+              setTime(false);
+            }}
           >
             <IoClose className="text-[24px]" />
           </button>
         </div>
 
         {isLoading ? (
-          <div className="time">{time ? <h1 className="">прошло успошно</h1> : <Loading />}</div>
+          <div className="time">
+            {time ? <h1 className="">прошло успошно</h1> : <Loading />}
+            <center>
+              <button
+                onClick={() => {
+                  dispatch({
+                    type: actionType.OPEN_CLOSE_MODAL,
+                    payload: false,
+                  });
+                  setTime(false);
+                }}
+                style={{ display: time ? "block" : "none" }}
+                className="bg-[#257ae8] px-[20%] py-[10px] my-2 rounded-[10px] text-[#fff]"
+              >
+                ок
+              </button>
+            </center>
+          </div>
         ) : (
           <form onSubmit={sendMessageBot}>
             <input
