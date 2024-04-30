@@ -92,7 +92,7 @@ export const ImagesByURL = ({ setValues, values }) => {
       </div>
       <p className="text-center text-[20px] mb-2 text-red-600">{error}</p>
 
-      <div className="flex max-[500px]:flex-col items-center gap-2">
+      <div className="flex max-[500px]:flex-col items-start gap-2">
         <input
             style={{border: '2px solid #757575'}}
           className="border-[2px] border-[#757575] rounded-[8px] text-[22px] py-[8px] px-[20px] w-[90%] gap-[8px] max-[500px]:w-[100%]"

@@ -17,6 +17,9 @@
     width: 90%;
     font-size: 26px;
     font-weight: 400;
+    display: flex;
+    justify-content: start;
+    padding-left: 8px;
   }
   &--flex {
     width: 85%;

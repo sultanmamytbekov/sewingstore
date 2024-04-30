@@ -20,6 +20,7 @@ const Recom = () => {
       <div className="container">
         <div className="recom">
           <h1>Другие продукты</h1>
+          <center>
           <div className="recom--title">
             {shuffleArray().length > 0 ? (
               shuffleArray().slice(0,4).map((el, idx) => <Block el={el} idx={idx} />)
@@ -36,6 +37,7 @@ const Recom = () => {
               </svg>
             )}
           </div>
+          </center>
         </div>
       </div>
     </div>

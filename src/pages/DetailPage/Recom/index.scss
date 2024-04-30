@@ -10,8 +10,7 @@
     &--title {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      // flex-wrap: wrap;
+      justify-content: start !important;
       gap: 50px;
       overflow-x: scroll;
 
@@ -61,14 +60,6 @@
     stroke-dashoffset: -124;
   }
 }
-
-
-
-
-@media (max-width: 1440px) {
-
-}
-
 // @media (max-width: 1200px) {
 
 // }
@@ -79,6 +70,7 @@
     align-items: center;
     justify-content: center;
     gap: 60px;
+    width: 95%;
 }
 }
 
@@ -106,6 +98,7 @@
 @media (max-width: 450px) {
   #recom .recom--title {
     flex-wrap: wrap;
+    justify-content: center !important;
     gap: 30px;
 }
 }

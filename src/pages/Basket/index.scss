@@ -1,5 +1,6 @@
 #basket {
   .basket {
+    padding-bottom: 50px;
     h1 {
       font-size: 32px;
       text-align: center;
@@ -197,9 +198,13 @@
 
 // }
 
-// @media (max-width: 768px) {
+@media (max-width: 768px) {
+  #basket .basket h1 {
+    font-size: 32px !important;
+    text-align: center;
+}
+}
 
-// }
 
 @media (max-width: 576px) {
     #basket .basket--title__text--block__texts .blockOne {
