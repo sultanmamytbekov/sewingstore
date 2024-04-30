@@ -5,7 +5,7 @@ const INIT_STATE = {
   user: null,
   save: JSON.parse(localStorage.getItem("save")) || [],
   modal: false,
-  admin: ["sultanmamytbekov98@gmail.com", "llol39039@gmail.com"],
+  admin: ["sultanmamytbekov98@gmail.com", "llol39039@gmail.com" , "admin123@gmail.com"],
 };
 
 export const MainReducer = (state = INIT_STATE, action) => {
