@@ -19,7 +19,7 @@ const Block = ({ el, idx }) => {
       className="text"
     >
       <img className="text--img" src={el.image[0]} alt="" />
-      <h1>{el.name}</h1>
+      <h1>{el.name.slice(0,12)}...</h1>
       <div className="text--flex">
         <div>
           <h4>В наличии</h4>

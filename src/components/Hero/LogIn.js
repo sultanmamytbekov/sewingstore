@@ -70,7 +70,7 @@ export const LogIn = () => {
   const [eyeOne, setEyeOne] = useState(false);
 
   return (
-    <section className="fixed bg-white w-[100%] z-[100]">
+    <section className="fixed mt-[-100px] bg-white w-[100%] z-[100]">
       <img
         className="absolute right-0 z-[-1] h-[100vh] max-[680px]:hidden"
         src={bg}

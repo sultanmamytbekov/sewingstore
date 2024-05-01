@@ -12,10 +12,20 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        div{
+          span{
+            color: #29aae3;
+            font-size: 16px;
+            cursor: pointer;
+            &:hover{
+              font-size: 17px;
+            }
+          }
+        }
       }
       h1 {
         width: 430px;
-        font-size: 40px;
+        font-size: 38px;
         font-weight: 400;
       }
       h4 {
@@ -108,7 +118,7 @@
     width: 100%;
     display: flex;
     flex-direction: initial;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
   }
   #detail .detail--text1 h1 {
@@ -127,7 +137,7 @@
 @media (max-width: 768px) {
   #detail .detail--text1 h1 {
     width: 100%;
-    font-size: 40px !important;
+    font-size: 31px !important;
   }
   #detail .detail--text1 .buttons {
     width: 300px;

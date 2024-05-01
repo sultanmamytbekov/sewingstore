@@ -247,13 +247,15 @@ const Header = () => {
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => navigate("/log_in")}
-                  className="text-[19px] justify-center h-[35px] bg-[#714424] px-[16px] text-[#fff] flex items-center rounded-[10px] min-[640px]:hidden"
+                  className="text-[19px] justify-center h-[35px] bg-[#29aae3] px-[16px] text-[#fff] flex items-center rounded-[10px] min-[640px]:hidden"
+                  style={{border:'1px solid #fff'}}
                 >
                   Вход
                 </button>
                 <button
                   onClick={() => navigate("/sign_up")}
-                  className="text-[19px] justify-center h-[35px] bg-[#714424] px-[16px] text-[#fff] flex items-center rounded-[10px] min-[640px]:hidden"
+                  className="text-[19px] justify-center h-[35px] bg-[#29aae3] px-[16px] text-[#fff] flex items-center rounded-[10px] min-[640px]:hidden"
+                  style={{border:'1px solid #fff'}}
                 >
                   Регистрация
                 </button>

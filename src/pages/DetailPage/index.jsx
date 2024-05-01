@@ -10,7 +10,7 @@ import ModalBuy from "../Basket/ModalBuy/ModalBuy";
 
 const DetailPage = () => {
   const { recipes, save, user, modal } = useSelector((s) => s);
-
+  const [slice , setSlice] = useState(false)
   const [oneRecipe, setOneRecipe] = useState(null);
   const [imgIdx, setImgIdx] = useState(0);
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ const DetailPage = () => {
               />
               <div
                 id="img"
-                className="flex gap-[30px] max-w-[800px] h-[230px] min-h-[166px] items-center overflow-x-scroll max-[540px]:gap-[15px] max-[375px]:w-[99%]"
+                className="flex gap-[30px] max-w-[700px] h-[230px] min-h-[166px] items-center overflow-x-scroll w-[80%] max-[540px]:gap-[15px] max-[375px]:w-[99%]"
               >
                 {oneRecipe
                   ? oneRecipe.image.map((img, idx) => (
@@ -78,7 +78,10 @@ const DetailPage = () => {
             </div>
             <div className="detail--text1">
               <div className="block">
-                <h1>{oneRecipe ? oneRecipe.name : ""}</h1>
+                <div>
+                  <h1>{(oneRecipe ? oneRecipe.name : "").slice(0, slice ? oneRecipe.name.lengt : 30)}</h1>
+                  <span onClick={() => setSlice(!slice)}>{slice ? 'свернуть':'развернуть'}...</span>
+                </div>
                 <h4>В наличии</h4>
                 <h2>{oneRecipe ? oneRecipe.price : ""}сом</h2>
               </div>

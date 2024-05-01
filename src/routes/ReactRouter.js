@@ -9,25 +9,30 @@ import DetailPage from "../pages/DetailPage";
 import Search from "../pages/Search";
 import Foouter from "../components/Foouter";
 import { useSelector } from "react-redux";
+import Header from "../components/Header";
 
 const ReactRouter = () => {
   let route = [
     { path: "/", element: <Hero />, key: 1 },
-    { path: "/log_in", element: <LogIn />, key: 2 },
-    { path: "/sign_up", element: <SignUp />, key: 3 },
-    { path: "/admin", element: <AddNew />, key: 4 },
-    { path: "/detail/:id", element: <DetailPage />, key: 5 },
-    { path: "/search", element: <Search />, key: 6 },
+    { path: "/admin", element: <AddNew />, key: 3 },
+    { path: "/detail/:id", element: <DetailPage />, key: 4 },
+    { path: "/search", element: <Search />, key: 5 },
   ];
-  const {user} = useSelector((s) => s);
-  function User(){
-    if(!user){
-      localStorage.removeItem('save')
+  let SIGN = [
+    { path: "/log_in", element: <LogIn />, key: 1 },
+    { path: "/sign_up", element: <SignUp />, key: 2 },
+    { path: "/saved", element: <Basket />, key: 3 },
+  ];
+
+  const { user } = useSelector((s) => s);
+  function User() {
+    if (!user) {
+      localStorage.removeItem("save");
     }
   }
   useEffect(() => {
-    User()
-  } , [])
+    User();
+  }, []);
   return (
     <Routes>
       {route.map((el) => (
@@ -35,6 +40,7 @@ const ReactRouter = () => {
           path={el.path}
           element={
             <>
+              <Header />
               {el.element}
               <Foouter />
             </>
@@ -42,7 +48,11 @@ const ReactRouter = () => {
           key={el.key}
         />
       ))}
-      <Route path="/saved" element={<Basket />}/>
+      {SIGN.map((el) => (
+        <>
+          <Route key={el.key} path={el.path} element={el.element} />
+        </>
+      ))}
     </Routes>
   );
 };

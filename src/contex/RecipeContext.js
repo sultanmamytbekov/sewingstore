@@ -19,6 +19,7 @@ export const RecipeContext = ({ children }) => {
   }
   async function addProduct(data){
     await axios.post(API, data)
+    getData();
   }
   async function removeProduct(data){
     await axios.delete(`${API}/${data}`)
@@ -32,7 +33,7 @@ export const RecipeContext = ({ children }) => {
     setSearch,
     search,
     addProduct,
-    removeProduct
+    removeProduct,
   };
   return (
     <recipeContext.Provider value={values}>{children}</recipeContext.Provider>
