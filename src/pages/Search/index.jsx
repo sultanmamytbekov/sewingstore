@@ -10,7 +10,7 @@ const Search = () => {
   const navigate = useNavigate();
   function Search() {
     let searchs = [...recipes];
-    return searchs.filter((el) => el.name.includes(search));
+    return searchs.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()));
   }
   useEffect(() => {
     if(search.length === 0){

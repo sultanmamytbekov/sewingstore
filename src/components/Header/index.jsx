@@ -99,7 +99,12 @@ const Header = () => {
                   placeholder="Искать товары"
                   type="text"
                 />
-                <button>
+                <button onClick={() => {
+                  if (windowWidth >= 1024){
+                    return;
+                  }
+                  setSearchs(false);
+                }}>
                   <IoSearch />
                 </button>
               </div>
