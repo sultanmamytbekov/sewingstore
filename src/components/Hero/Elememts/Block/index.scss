@@ -124,14 +124,10 @@
 // }
 
 @media (max-width: 768px) {
-  .text h1 {
-    width: 90%;
+  #recom .recom--title .text h1 {
+    width: 100%;
     font-size: 26px !important;
-    font-weight: 400;
 }
-}
-
-@media (max-width: 576px) {
 
 }
 

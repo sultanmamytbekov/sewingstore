@@ -19,7 +19,7 @@ const Recom = () => {
     <div id="recom">
       <div className="container">
         <div className="recom">
-          <h1>Другие продукты</h1>
+          <h1 className="recomText">Другие продукты</h1>
           <center>
           <div className="recom--title">
             {shuffleArray().length > 0 ? (
