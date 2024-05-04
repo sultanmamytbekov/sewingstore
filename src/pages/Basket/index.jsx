@@ -1,7 +1,5 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { delInBasket, minusCartCount } from "../../redux/Reducer/ActionCreater";
-// import { addToCart } from "./../../redux/Reducer/ActionCreater";
 import { MdDeleteOutline } from "react-icons/md";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
@@ -18,7 +16,7 @@ const Basket = () => {
   const navigate = useNavigate();
   return (
     <>
-    <Header/>
+      <Header />
       <div id="basket">
         <div className="container">
           <div className="basket">
@@ -84,8 +82,8 @@ const Basket = () => {
                   Ваша корзина пуста
                 </h1>
                 <h5 data-aos="fade-down" className="max-w-[500px] text-center">
-                  Скорее в каталог, там много потрясающих украшений, которые вам
-                  обязательно понравятся!
+                  Скорее в каталог, там много интересных для вас товары, которые
+                  вам обязательно понравятся!
                 </h5>
                 <button
                   data-aos="fade-up"

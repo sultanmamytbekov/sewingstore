@@ -11,16 +11,53 @@ const ModalBuy = () => {
   const [time, setTime] = useState(false);
   const { save, user } = useSelector((s) => s);
   const dispatch = useDispatch();
-  function onChange(e) {
-    const { name, value, modal } = e.target;
 
+  function onChange(e) {
+    const { name, value } = e.target;
     setNewDate({ ...newData, [name]: value });
   }
+
+  function getPhone(e) {
+    let str = e.target.value.replace(/\D/g, ""); // Удаляем все нецифровые символы
+    let formattedNumber = "";
+
+    if (str.length > 0) {
+      formattedNumber += `(${str.slice(0, 4)}`;
+    }
+
+    if (str.length > 4) {
+      formattedNumber += `) ${str.slice(4, 6)}`;
+    }
+
+    if (str.length > 6) {
+      formattedNumber += `-${str.slice(6, 8)}`;
+    }
+
+    if (str.length > 8) {
+      formattedNumber += `-${str.slice(8, 10)}`;
+    }
+
+    setNewDate({ ...newData, phone: formattedNumber });
+  }
+
   const TELEGRAM_CHAT_ID = "@Sewing_Store";
   const TELEGRAM_BOT_TOKEN = "6913526585:AAF30nzBU_Ttqh68ScTdpyzeDbF17dqjFyY";
   const API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
   async function sendMessageBot(e) {
     e.preventDefault();
+    if (
+      newData.name.length === 0 &&
+      newData.phone.length === 0 &&
+      newData.email.length === 0
+    ) {
+      alert("заполните все поле!");
+      return;
+    } else if (newData.phone.length !== 15) {
+      alert("заполните поле с номером телефона!");
+      return;
+    }
+
     setLoading(true);
     let rondom = Math.floor(Math.random() * 10);
     let res = {
@@ -29,7 +66,7 @@ const ModalBuy = () => {
       gmail: newData.email,
     };
     let resMessage = `
-    Пользователь: ${user.displayName} \n имя: '${res.name} \n нрмер: "${
+    Пользователь: ${user.displayName} \n имя: '${res.name} \n нормер: "${
       res.number
     }" \n email: ${res.gmail} \n купил товар под номером: ${save
       .map((el) => el.id)
@@ -43,9 +80,9 @@ const ModalBuy = () => {
     });
     setTimeout(() => {
       setTime(true);
-      dispatch({ type: actionType.BASKET_REMOVE, payload: [] });
     }, rondom * 1000);
   }
+
   return (
     <div
       id="modal"
@@ -74,6 +111,7 @@ const ModalBuy = () => {
                     type: actionType.OPEN_CLOSE_MODAL,
                     payload: false,
                   });
+                  dispatch({ type: actionType.BASKET_REMOVE, payload: [] });
                   setTime(false);
                 }}
                 style={{ display: time ? "block" : "none" }}
@@ -101,7 +139,7 @@ const ModalBuy = () => {
               name="phone"
               required
               value={newData.phone}
-              onChange={onChange}
+              onChange={getPhone} // Обновленный onChange для номера телефона
             />
             <input
               className="border-b-[1px] border-[#000] bg-[#f2f2f2] py-[5px] px-[10px] w-[100%] text-[18px] outline-none"
