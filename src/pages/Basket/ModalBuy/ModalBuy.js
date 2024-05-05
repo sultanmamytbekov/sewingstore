@@ -11,7 +11,10 @@ const ModalBuy = () => {
   const [time, setTime] = useState(false);
   const { save, user } = useSelector((s) => s);
   const dispatch = useDispatch();
-
+  console.log(
+    "lol",
+    
+  );
   function onChange(e) {
     const { name, value } = e.target;
     setNewDate({ ...newData, [name]: value });
@@ -70,9 +73,7 @@ const ModalBuy = () => {
       res.number
     }" \n email: ${res.gmail} \n купил товар под номером: ${save
       .map((el) => el.id)
-      .join(",")} \n общая цена: ${save
-      .map((el) => el.count * +el.price)
-      .reduce((acc, el) => acc + el)}сом`;
+      .join(",")} \n общая цена: ${Math.round(save.map((el) => el.count * +el.price).reduce((acc, el) => acc + el))}сом`;
     axios.post(API, {
       chat_id: TELEGRAM_CHAT_ID,
       parse_mode: "html",
